@@ -244,20 +244,23 @@ class ButtonListener implements ActionListener
                 break;
             // 按下确认
             case 10:
-                if(Operation.getText().equals("+"))
+                try
                 {
-                    if(Integer.parseInt(textField.getText())==Integer.parseInt(one.getText())+Integer.parseInt(two.getText()))
-                        testResult.setText("√");
+                    if(Operation.getText().equals("+"))
+                    {
+                        if(Integer.parseInt(textField.getText())==Integer.parseInt(one.getText())+Integer.parseInt(two.getText()))
+                            testResult.setText("√");
+                        else
+                            testResult.setText("×");
+                    }
                     else
-                        testResult.setText("×");
-                }
-                else
-                {
-                    if(Integer.parseInt(textField.getText())==Integer.parseInt(one.getText())-Integer.parseInt(two.getText()))
-                        testResult.setText("√");
-                    else
-                        testResult.setText("×");
-                }
+                    {
+                        if(Integer.parseInt(textField.getText())==Integer.parseInt(one.getText())-Integer.parseInt(two.getText()))
+                            testResult.setText("√");
+                        else
+                            testResult.setText("×");
+                    }
+                }catch (NumberFormatException a) {}
                 textField.setText("");
                 break;
             // 按下下一题
