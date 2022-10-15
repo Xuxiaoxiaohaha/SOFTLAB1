@@ -62,48 +62,50 @@ class MyPanel extends JPanel
         // 输入按钮
         ButtonListener buttonListener = new ButtonListener(Result,Operand1,Operand2,Operation,TestResult);
         // 按钮1
-        JButton num1 = SetNumButton("1","1",90,70,30,70,200,buttonListener);
+        JButton num1 = SetButton("1","1",90,70,30,70,200,buttonListener);
         this.add(num1);
         // 按钮2
-        JButton num2 = SetNumButton("2","2",90,70,30,160,200,buttonListener);
+        JButton num2 = SetButton("2","2",90,70,30,160,200,buttonListener);
         this.add(num2);
         // 按钮3
-        JButton num3 = SetNumButton("3","3",90,70,30,250,200,buttonListener);
+        JButton num3 = SetButton("3","3",90,70,30,250,200,buttonListener);
         this.add(num3);
         // 按钮4
-        JButton num4 = SetNumButton("3","3",90,70,30,70,270,buttonListener);
+        JButton num4 = SetButton("4","4",90,70,30,70,270,buttonListener);
         this.add(num4);
         // 按钮5
-        JButton num5 = SetNumButton("5","5",90,70,30,160,270,buttonListener);
+        JButton num5 = SetButton("5","5",90,70,30,160,270,buttonListener);
         this.add(num5);
         // 按钮6
-        JButton num6 = SetNumButton("6","6",90,70,30,250,270,buttonListener);
+        JButton num6 = SetButton("6","6",90,70,30,250,270,buttonListener);
         this.add(num6);
         // 按钮7
-        JButton num7 = SetNumButton("7","7",90,70,30,70,340,buttonListener);
+        JButton num7 = SetButton("7","7",90,70,30,70,340,buttonListener);
         this.add(num7);
         // 按钮8
-        JButton num8 = SetNumButton("8","8",90,70,30,160,340,buttonListener);
+        JButton num8 = SetButton("8","8",90,70,30,160,340,buttonListener);
         this.add(num8);
         // 按钮9
-        JButton num9 = SetNumButton("9","9",90,70,30,250,340,buttonListener);
+        JButton num9 = SetButton("9","9",90,70,30,250,340,buttonListener);
         this.add(num9);
         // 按钮0
-        JButton num0 = SetNumButton("0","0",90,70,30,160,410,buttonListener);
+        JButton num0 = SetButton("0","0",90,70,30,160,410,buttonListener);
         this.add(num0);
 
         // 确认按钮
-        JButton YES = SetNumButton("确认","10",90,70,25,400,270,buttonListener);
+        JButton YES = SetButton("确认","10",90,70,25,400,270,buttonListener);
         this.add(YES);
 
         // 下一题按钮
-        JButton Next = SetNumButton("下一题","11",90,70,18,400,340,buttonListener);
+        JButton Next = SetButton("下一题","11",90,70,18,400,340,buttonListener);
         this.add(Next);
 
         // 删除按钮
-        JButton Delete = SetNumButton("删除","12",90,70,25,400,200,buttonListener);
+        JButton Delete = SetButton("删除","12",90,70,25,400,200,buttonListener);
         this.add(Delete);
 
+        // 错题集按钮
+        //JButton ErrorSet = SetButton("错题集","13",90,70,18,)
     }
 
     /**
@@ -126,7 +128,7 @@ class MyPanel extends JPanel
         return label;
     }
     /**
-     * 获取数字按钮
+     * 获取按钮
      * @param ButtonShow 按钮上的字
      * @param ButtonName 按钮标识
      * @param width 按钮宽
@@ -137,7 +139,7 @@ class MyPanel extends JPanel
      * @param buttonListener 监听按钮
      * @return 按钮
      */
-    private JButton SetNumButton(String ButtonShow,String ButtonName,int width,int height,int size,int x,int y,ButtonListener buttonListener )
+    private JButton SetButton(String ButtonShow,String ButtonName,int width,int height,int size,int x,int y,ButtonListener buttonListener )
     {
         JButton button = new JButton(ButtonShow);
         button.setName(ButtonName);
@@ -233,7 +235,9 @@ class ButtonListener implements ActionListener
                         else
                             testResult.setText("×");
                     }
-                }catch (NumberFormatException a) {}
+                }catch (NumberFormatException a) {
+                    //可能有人输入的不是数字...
+                }
                 textField.setText("");
                 break;
             // 按下下一题
