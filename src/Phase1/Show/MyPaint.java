@@ -23,6 +23,9 @@ public class MyPaint extends JFrame {
 }
 class MyPanel extends JPanel
 {
+    /**
+     * 用于添加组件
+     */
     public MyPanel()
     {
         this.setLayout(null);
@@ -35,28 +38,16 @@ class MyPanel extends JPanel
         {
             two = random.nextInt(100);
         }
-        JLabel Operand1 = new JLabel(""+one);
-        Operand1.setSize(40,40);
-        Operand1.setFont(new Font("宋体",Font.BOLD,30));
-        Operand1.setLocation(60,100);
+        JLabel Operand1 = SetLabel(""+one,"宋体",40,40,30 ,60,100);
         this.add(Operand1);
         // 操作数2
-        JLabel Operand2 = new JLabel(""+two);
-        Operand2.setSize(40,40);
-        Operand2.setFont(new Font("宋体",Font.BOLD,30));
-        Operand2.setLocation(180,100);
+        JLabel Operand2 = SetLabel(""+two,"宋体",40,40,30 ,180,100);
         this.add(Operand2);
         // 操作符
-        JLabel Operation = new JLabel("+");
-        Operation.setFont(new Font("宋体",Font.BOLD,30));
-        Operation.setSize(40,40);
-        Operation.setLocation(130,100);
+        JLabel Operation = SetLabel("+","宋体",40,40,30 ,130,100);
         this.add(Operation);
         // 等号
-        JLabel Equal = new JLabel("=");
-        Equal.setSize(40,40);
-        Equal.setFont(new Font("宋体",Font.BOLD,30));
-        Equal.setLocation(250,100);
+        JLabel Equal = SetLabel("=","宋体",40,40,30 ,250,100);
         this.add(Equal);
         // 输入框
         JTextField Result = new JTextField(3);
@@ -65,123 +56,101 @@ class MyPanel extends JPanel
         Result.setLocation(300,100);
         this.add(Result);
         // 正确错误提示符
-        JLabel TestResult = new JLabel("");
-        TestResult.setSize(40,40);
+        JLabel TestResult = SetLabel("","隶书",40,40,30 ,380,100);
         TestResult.setForeground(Color.RED);
-        TestResult.setFont(new Font("隶书",Font.BOLD,30));
-        TestResult.setLocation(380,100);
         this.add(TestResult);
         // 输入按钮
         ButtonListener buttonListener = new ButtonListener(Result,Operand1,Operand2,Operation,TestResult);
         // 按钮1
-        JButton num1 = new JButton("1");
-        num1.setName("1");
-        num1.setSize(90,70);
-        num1.setFont(new Font("宋体",Font.BOLD,30));
-        num1.setLocation(70,200);
-        num1.addActionListener(buttonListener);
+        JButton num1 = SetNumButton("1","1",90,70,30,70,200,buttonListener);
         this.add(num1);
         // 按钮2
-        JButton num2 = new JButton("2");
-        num2.setName("2");
-        num2.setSize(90,70);
-        num2.setFont(new Font("宋体",Font.BOLD,30));
-        num2.setLocation(160,200);
-        num2.addActionListener(buttonListener);
+        JButton num2 = SetNumButton("2","2",90,70,30,160,200,buttonListener);
         this.add(num2);
         // 按钮3
-        JButton num3 = new JButton("3");
-        num3.setName("3");
-        num3.setSize(90,70);
-        num3.setFont(new Font("宋体",Font.BOLD,30));
-        num3.setLocation(250,200);
-        num3.addActionListener(buttonListener);
+        JButton num3 = SetNumButton("3","3",90,70,30,250,200,buttonListener);
         this.add(num3);
         // 按钮4
-        JButton num4 = new JButton("4");
-        num4.setName("4");
-        num4.setSize(90,70);
-        num4.setFont(new Font("宋体",Font.BOLD,30));
-        num4.setLocation(70,270);
-        num4.addActionListener(buttonListener);
+        JButton num4 = SetNumButton("3","3",90,70,30,70,270,buttonListener);
         this.add(num4);
         // 按钮5
-        JButton num5 = new JButton("5");
-        num5.setName("5");
-        num5.setSize(90,70);
-        num5.setFont(new Font("宋体",Font.BOLD,30));
-        num5.setLocation(160,270);
-        num5.addActionListener(buttonListener);
+        JButton num5 = SetNumButton("5","5",90,70,30,160,270,buttonListener);
         this.add(num5);
         // 按钮6
-        JButton num6 = new JButton("6");
-        num6.setName("6");
-        num6.setSize(90,70);
-        num6.setFont(new Font("宋体",Font.BOLD,30));
-        num6.setLocation(250,270);
-        num6.addActionListener(buttonListener);
+        JButton num6 = SetNumButton("6","6",90,70,30,250,270,buttonListener);
         this.add(num6);
         // 按钮7
-        JButton num7 = new JButton("7");
-        num7.setName("7");
-        num7.setSize(90,70);
-        num7.setFont(new Font("宋体",Font.BOLD,30));
-        num7.setLocation(70,340);
-        num7.addActionListener(buttonListener);
+        JButton num7 = SetNumButton("7","7",90,70,30,70,340,buttonListener);
         this.add(num7);
         // 按钮8
-        JButton num8 = new JButton("8");
-        num8.setName("8");
-        num8.setSize(90,70);
-        num8.setFont(new Font("宋体",Font.BOLD,30));
-        num8.setLocation(160,340);
-        num8.addActionListener(buttonListener);
+        JButton num8 = SetNumButton("8","8",90,70,30,160,340,buttonListener);
         this.add(num8);
         // 按钮9
-        JButton num9 = new JButton("9");
-        num9.setName("9");
-        num9.setSize(90,70);
-        num9.setFont(new Font("宋体",Font.BOLD,30));
-        num9.setLocation(250,340);
-        num9.addActionListener(buttonListener);
+        JButton num9 = SetNumButton("9","9",90,70,30,250,340,buttonListener);
         this.add(num9);
         // 按钮0
-        JButton num0 = new JButton("0");
-        num0.setName("0");
-        num0.setSize(90,70);
-        num0.setFont(new Font("宋体",Font.BOLD,30));
-        num0.setLocation(160,410);
-        num0.addActionListener(buttonListener);
+        JButton num0 = SetNumButton("0","0",90,70,30,160,410,buttonListener);
         this.add(num0);
 
         // 确认按钮
-        JButton YES = new JButton("确认");
-        YES.setName("10");//
-        YES.setSize(90,70);
-        YES.setFont(new Font("宋体",Font.BOLD,25));
-        YES.setLocation(400,270);
-        YES.addActionListener(buttonListener);
+        JButton YES = SetNumButton("确认","10",90,70,25,400,270,buttonListener);
         this.add(YES);
 
         // 下一题按钮
-        JButton Next = new JButton("下一题");
-        Next.setName("11");
-        Next.setSize(90,70);
-        Next.setFont(new Font("宋体",Font.BOLD,18));
-        Next.setLocation(400,340);
-        Next.addActionListener(buttonListener);
+        JButton Next = SetNumButton("下一题","11",90,70,18,400,340,buttonListener);
         this.add(Next);
 
         // 删除按钮
-        JButton Delete = new JButton("删除");
-        Delete.setName("12");
-        Delete.setSize(90,70);
-        Delete.setFont(new Font("宋体",Font.BOLD,25));
-        Delete.setLocation(400,200);
-        Delete.addActionListener(buttonListener);
+        JButton Delete = SetNumButton("删除","12",90,70,25,400,200,buttonListener);
         this.add(Delete);
 
     }
+
+    /**
+     * 获取标签
+     * @param LabelShow 标签上的字
+     * @param FontName 字体类型
+     * @param width 标签宽
+     * @param height 标签高
+     * @param size 字体大小
+     * @param x 标签x轴上的坐标
+     * @param y 标签y轴上的坐标
+     * @return 标签
+     */
+    private JLabel SetLabel(String LabelShow,String FontName,int width,int height,int size ,int x,int y)
+    {
+        JLabel label = new JLabel(LabelShow);
+        label.setSize(width,height);
+        label.setFont(new Font(FontName,Font.BOLD,size));
+        label.setLocation(x,y);
+        return label;
+    }
+    /**
+     * 获取数字按钮
+     * @param ButtonShow 按钮上的字
+     * @param ButtonName 按钮标识
+     * @param width 按钮宽
+     * @param height 按钮高
+     * @param size 按钮字大小
+     * @param x 按钮x轴位置
+     * @param y 按钮y轴位置
+     * @param buttonListener 监听按钮
+     * @return 按钮
+     */
+    private JButton SetNumButton(String ButtonShow,String ButtonName,int width,int height,int size,int x,int y,ButtonListener buttonListener )
+    {
+        JButton button = new JButton(ButtonShow);
+        button.setName(ButtonName);
+        button.setSize(width,height);
+        button.setFont(new Font("宋体",Font.BOLD,size));
+        button.setLocation(x,y);
+        button.addActionListener(buttonListener);
+        return button;
+    }
+    /**
+     * 用于美化界面
+     * @param g  画笔
+     */
     @Override
     public void paintComponent(Graphics g)
     {
@@ -192,6 +161,10 @@ class MyPanel extends JPanel
         g.drawString("加减法计算",359,50);
     }
 }
+
+/**
+ * 监听按钮事件
+ */
 class ButtonListener implements ActionListener
 {
     private JTextField textField;
